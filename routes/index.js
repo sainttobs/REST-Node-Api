@@ -38,20 +38,21 @@ router.get('/countries', (req, res, next) =>{
     }
 });
 
+
 router.put('/countries', (req, res, next) => {
     let country = req.body.country;
     if (country) {
         let Saved = allCountries.find(country => country === req.body.countries)
 
-        if(Saved) res.status(200).json("success", {"responseData": "Country Already Exist"}, "Not Added");
+        if(Saved) res.status(200).json( {"responseData": "Country Already Exist"}, "Not Added");
         else {
             allCountries.push(req.body.countries)
-            res.status(200).json("success", {"responseData": "Country Added"});
+            res.status(200).json({"responseData": "Country Added"});
         }
         
     }
 
-    else res.status(400).json(transformResponse(0, "success", {"responseData": "Country Not Added"}, "Empty Body"))
+    else res.status(400).json({"responseData": "Country Not Added"}, "Empty Body")
 });
 
 router.delete('/countries', (req, res, next) => {
