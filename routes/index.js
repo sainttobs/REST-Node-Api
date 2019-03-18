@@ -52,7 +52,7 @@ router.put('/countries', (req, res, next) => {
         
     }
 
-    else res.status(400).json({"responseData": "Country Not Added"}, "Empty Body")
+    else res.status(400).json({"responseData": "Country Not Added"}, "Empty Body");
 });
 
 router.delete('/countries', (req, res, next) => {
