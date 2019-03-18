@@ -1,5 +1,5 @@
 const express = require('express');
-const generateAccessToken = require('./middleware/auth').generateAccessToken
+const generateAccessToken = require('../middleware/auth').generateAccessToken
 const router = express.Router();
 
 router.get('/',(req, res, next) => {
@@ -34,7 +34,7 @@ let allCountries = [];
 
 router.get('/countries', (req, res, next) =>{
     try {
-        res.status(200).json("success", {"responseData": saveCountries})
+        res.status(200).json("success", {"responseData": allCountries})
 
     } catch (error) {
         console.error({error})
